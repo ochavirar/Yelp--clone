@@ -41,7 +41,7 @@
         <div class="nav-item dropdown bg-dark d-flex">
           <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Options</a>
           <div class="dropdown-menu" aria-labelledby="dropdownId">
-            <a class="dropdown-item" href="#">New place</a>
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#addPlace">New place</a>
             <a class="dropdown-item" href="#">Sign out</a>
           </div>
         </div>
@@ -113,7 +113,7 @@
                   <div class="col-lg-1"></div>
 
                   <div class="col-lg-2">
-                    <button class="btn ">
+                    <button class="btn" data-toggle="modal" data-target="#editPlace">
                       <i class="fa fa-gears"></i>
                     </button>
                     <button class="btn">
@@ -144,7 +144,7 @@
             <div class="container">
               <div class="row">
                 <div class="card col-lg-12">
-                  <strong>Comentarios:</strong>
+                  <h3><strong>Comentarios:</strong></h3>
                   <!--Unique comment with an answer-->
                   <div class="container">
                     <div class="row col-12">
@@ -224,6 +224,7 @@
             </div>
           </div>
 
+          <br>
           <!--Metric section-->
           <div class="row">
             <div class="card text-white bg-success mb-3 col-12">
@@ -236,6 +237,168 @@
           </div>
 
         </div>  
+
+        <!--Modal para agregar un lugar-->
+        <div id="addPlace" class="modal" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Vamos a agregar un nuevo lugar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>Ingresa los datos que se te piden</p>
+                <form>
+                  <div class="col-auto">
+                    <div class="row">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text"><i class="fa fa-building"></i></div>
+                        </div>
+                        <input type="text" class="form-control" id="bName" placeholder="Nombre del negocio">
+                      </div>
+                    </div>
+  
+                    <br>
+  
+                    <div class="row">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text"><i class="fa fa-map-pin"></i></div>
+                        </div>
+                        <input type="text" class="form-control" id="location" placeholder="Link de google maps">
+                      </div>
+                    </div>
+  
+                    <br>
+  
+                    <div class="row">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text"><i class="fa fa-check"></i></div>
+                        </div>
+                        <input type="text" class="form-control" id="concept" placeholder="Describe tu negocio">
+                      </div>
+                    </div>
+  
+                    <br>
+  
+                    <div class="row">
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text"><i class="fa fa-image"></i></div>
+                        </div>
+                          <input type="text" class="form-control" id="concept" placeholder="Agrega una foto">
+                        <div class="col">
+                          <input type="text" class="form-control" id="concept" placeholder="Agrega una foto">
+                        </div>
+                        <div class="col">
+                          <input type="text" class="form-control" id="concept" placeholder="Agrega una foto">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <label for="inputBudget">Budget: </label>
+                      <select id="inputState" class="form-control">
+                        <option selected>Low</option>
+                        <option>Medium</option>
+                        <option>High</option>
+                      </select>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-success">Agregar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--Modal para editar un negocio-->
+        <div id="editPlace" class="modal" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Vamos a agregar un nuevo lugar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>Ingresa los datos que se te piden</p>
+                <form>
+                  <div class="col-auto">
+                    <div class="row">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text"><i class="fa fa-building"></i></div>
+                        </div>
+                        <input type="text" class="form-control" id="bName" placeholder="Nombre del negocio">
+                      </div>
+                    </div>
+  
+                    <br>
+  
+                    <div class="row">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text"><i class="fa fa-map-pin"></i></div>
+                        </div>
+                        <input type="text" class="form-control" id="location" placeholder="Link de google maps">
+                      </div>
+                    </div>
+  
+                    <br>
+  
+                    <div class="row">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text"><i class="fa fa-check"></i></div>
+                        </div>
+                        <input type="text" class="form-control" id="concept" placeholder="Describe tu negocio">
+                      </div>
+                    </div>
+  
+                    <br>
+  
+                    <div class="row">
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text"><i class="fa fa-image"></i></div>
+                        </div>
+                          <input type="text" class="form-control" id="concept" placeholder="Agrega una foto">
+                        <div class="col">
+                          <input type="text" class="form-control" id="concept" placeholder="Agrega una foto">
+                        </div>
+                        <div class="col">
+                          <input type="text" class="form-control" id="concept" placeholder="Agrega una foto">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <label for="inputBudget">Budget: </label>
+                      <select id="inputState" class="form-control">
+                        <option selected>Low</option>
+                        <option>Medium</option>
+                        <option>High</option>
+                      </select>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-success">Guardar cambios</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
       </div>  
     </div>
