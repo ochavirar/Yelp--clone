@@ -7,6 +7,5 @@ function getBusiness(){
 }
 
 function createBusiness(newBusiness){
-    console.log("paso1");
     business.push(Business.createFromObject(newBusiness));
 }
