@@ -1,0 +1,139 @@
+
+/* USED FOR GIF HEADER  */
+.gif-header {
+    height: 180px;
+    background-image: url(https://media.tenor.com/d5HVL_p6WwsAAAAd/nachos-mexican-food.gif);
+    background-size: cover;
+    background-position: center center;
+}
+  
+.gif-header-wrapper{
+    position: relative;
+    width: 960px;
+    min-height: 300px;
+    margin: 0 auto;
+    padding: 40px 0 0 0;
+}
+  
+/* USED FOR MAIN CONTENT */
+
+.main-wrapper {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.main-content-title {
+    font-size: 3vw;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    padding-top: 12px;
+    padding-bottom: 22px;
+}
+
+
+.main-content-subtitle {
+    font-size: 2vw;
+    font-weight: bold;
+    color: #d32323;
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+/* USED FOR RESTAURANT DISPLAY */
+.restaurants {
+  line-height: normal;
+  margin-bottom: 25px;
+  width: 1200px;
+}
+
+.restaurants-row {
+}
+
+.restaurants-col {
+    display:inline-block;
+	border: 1px solid #8a8989;
+	border-radius: 4px;
+  margin: 0 10px;
+
+}
+
+.card__photo img {
+  border-radius: 4px 4px 0 0;
+}
+
+
+
+.restaurants-container {
+  font-size: 14px;
+	font-family: sans-serif;
+	font-stretch: extra-condensed;
+	padding: 12px;
+}
+
+.restaurants-name {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.restaurants-name-link {
+  font-family: sans-serif;
+	font-size: 24px;
+	font-weight: bold;
+	color: #0073bb;	
+	text-decoration: none;
+}
+
+.restaurants-name-link:hover {
+    font-family: sans-serif;
+	font-size: 24px;
+	font-weight: bold;
+	color: #ce3131;	
+	text-decoration: none;
+}
+
+.restaurants-rating {
+  margin-bottom: 7px;
+  padding: 11px 0 0 0;
+}
+
+.restaurants-rating-stars {
+  display: inline-block;
+	width: 20px;
+	height: 20px;
+	background-image: url();
+	margin: 0;
+	padding: 0;
+	color: transparent;
+  vertical-align: bottom;
+}
+
+
+.restaurants-rating .review-counter {
+	display: inline-block;
+	padding: 0;
+	color: #666;
+  vertical-align: text-top;
+}
+
+.restaurants-info {
+  color: #333;
+	margin-bottom: 7px;
+}
+
+.restaurants-info__cost {
+  font-size: 14px;
+	padding-right: 10px;
+}
+
+.restaurants-info__food {
+  font-size: 14px;
+}
+
+.restaurants-timetable{
+	position: relative;
+	font-size: 14px;
+	color: #f15c00;
+	padding-left: 25px;
+}
+
