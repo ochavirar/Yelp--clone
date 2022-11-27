@@ -25,6 +25,11 @@ let usersSchema = mongoose2.Schema({
     level: {
         type: Number,
         required: true
+    },
+    userType: {
+        type: String,
+        required: true,
+        enum: ['user', 'manager']
     }
 });
 

@@ -3,6 +3,7 @@
 const router = require('express').Router();
 const dataHandlerBusiness = require('./data_handler_business');
 const dataHandlerUsers = require('./data_handler_users');
+const dataHandlerReviews = require('./data_handler_reviews');
 
 router.route('/Business')
     .get((req, res) => dataHandlerBusiness.getBusiness(req, res))
@@ -31,5 +32,19 @@ router.route('/Users/id/:_id')
     .get((req, res) => dataHandlerUsers.getUserByID(req, res))
     .put((req, res) => dataHandlerUsers.updateUserByID(req, res))
     .delete((req, res) => dataHandlerUsers.deleteUserByID(req, res));
+///////////////////////////////////
+router.route('/Reviews')
+    .get((req, res) => dataHandlerReviews.getReviews(req, res))
+    .post((req, res) => dataHandlerReviews.createReviews(req, res));
+
+router.route('/Reviews/id/:_id')
+    .get((req, res) => dataHandlerReviews.getReviewByID(req, res))
+    .put((req, res) => dataHandlerReviews.updateReviewsByID(req, res))
+    .delete((req, res) => dataHandlerReviews.deleteReviewByID(req, res));
+
+router.route('/Reviews/target/:targetBusinessID')
+    .get((req, res) => dataHandlerReviews.getReviewByTarget(req, res))
+    .put((req, res) => dataHandlerReviews.updateReviewsByTargetID(req, res))
+    .delete((req, res) => dataHandlerReviews.deleteReviewByTarget(req, res));
 
 module.exports = router;
