@@ -1,7 +1,10 @@
 "use strict";
 
+process.env.TOKEN_KEY = "ABC123"
+
 const express = require('express');
 const router = require('./controllers/router');
+const loginRouter = require('./controllers/login_router');
 const app = express();
 const port = 4000;
 const cors = require('cors');
@@ -11,6 +14,7 @@ app.use(cors({
   }));
 
 app.use(express.json());
+app.use(loginRouter);
 app.use('/api', router);
 app.get('/',
     (req, res) => res.send("Hello Yelp! clone people")
@@ -21,5 +25,5 @@ app.route('/home').get(
 );
 
 app.listen(port, () =>{
-    console.log(`Example app listening to port ${port}`);
+    console.log(`Example app listening to port ${port}!`);
 });

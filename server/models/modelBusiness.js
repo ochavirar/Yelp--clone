@@ -1,8 +1,11 @@
 "use strict";
 
 const mongoose = require('mongoose');
+const { returnCryptedPassword } = require('../controllers/mongodbPassword');
 
-let mongoDB = 'mongodb://0.0.0.0:27017/YelpDB';
+let pass = returnCryptedPassword();
+
+let mongoDB = `mongodb+srv://OGDEVS:${pass}@cluster0.gh4dk1b.mongodb.net/YelpDB`;
 mongoose.connect(mongoDB, {useNewUrlParser: true});
 
 let businessSchema = mongoose.Schema({
@@ -33,6 +36,30 @@ let businessSchema = mongoose.Schema({
     budget: {
         type: String,
         enum: ['Low', 'Medium', 'High'],
+        required: true
+    },
+    ownerID: {
+        type: String,
+        required: true
+    },
+    fiveStars:{
+        type: Number,
+        required: true
+    },
+    fourStars:{
+        type: Number,
+        required: true
+    },
+    ThreeStars:{
+        type: Number,
+        required: true
+    },
+    TwoStars:{
+        type: Number,
+        required: true
+    },
+    oneStar:{
+        type: Number,
         required: true
     },
     openHour: {

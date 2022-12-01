@@ -2,7 +2,12 @@
 
 const mongoose3 = require('mongoose');
 
-let mongoDB3 = 'mongodb://0.0.0.0:27017/YelpDB';
+const { returnCryptedPassword } = require('../controllers/mongodbPassword');
+
+let pass = returnCryptedPassword();
+
+let mongoDB3 = `mongodb+srv://OGDEVS:${pass}@cluster0.gh4dk1b.mongodb.net/YelpDB`;
+
 mongoose3.connect(mongoDB3, {useNewUrlParser: true});
 
 let reviewSchema = mongoose3.Schema({

@@ -4,6 +4,7 @@ const router = require('express').Router();
 const dataHandlerBusiness = require('./data_handler_business');
 const dataHandlerUsers = require('./data_handler_users');
 const dataHandlerReviews = require('./data_handler_reviews');
+const tokenUtils = require('./token_utils');
 
 router.route('/Business')
     .get((req, res) => dataHandlerBusiness.getBusiness(req, res))
@@ -18,10 +19,20 @@ router.route('/Business/id/:_id')
     .get((req, res) => dataHandlerBusiness.getBusinessByID(req, res))
     .put((req, res) => dataHandlerBusiness.updateBusinessByID(req, res))
     .delete((req, res) => dataHandlerBusiness.deleteBusinessByID(req, res));
+
+router.route('/BusinessReviews/id/:_id')
+    .get((req, res) => dataHandlerBusiness.getReviewsRelatedToABusinessByID(req, res));
 ////////////////////////////////////
 router.route('/Users')
     .get((req, res) => dataHandlerUsers.getUsers(req, res))
     .post((req, res) => dataHandlerUsers.createUser(req, res));
+
+router.use('/Users/email/:email', tokenUtils.verifyToken);
+
+router.route('/Users/email/:email')
+    .get((req, res) => dataHandlerUsers.getUserByEmail(req, res))
+    .put((req, res) => dataHandlerUsers.updateUserByEmail(req, res))
+    .delete((req, res) => dataHandlerUsers.deleteUserByEmail(req, res));
 
 router.route('/Users/name/:name')
     .get((req, res) => dataHandlerUsers.getUserByName(req, res))
@@ -46,5 +57,6 @@ router.route('/Reviews/target/:targetBusinessID')
     .get((req, res) => dataHandlerReviews.getReviewByTarget(req, res))
     .put((req, res) => dataHandlerReviews.updateReviewsByTargetID(req, res))
     .delete((req, res) => dataHandlerReviews.deleteReviewByTarget(req, res));
+/////////////////////////////////////
 
 module.exports = router;

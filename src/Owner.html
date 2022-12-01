@@ -14,7 +14,8 @@
   <body>
 
     <!-- Optional JavaScript -->
-    <script src="index.js"></script>
+    <script src="ajax_handler.js"></script>
+    <script src="./utils/business_utils.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -262,7 +263,7 @@
                         <div class="input-group-prepend">
                           <div class="input-group-text"><i class="fa fa-building"></i></div>
                         </div>
-                        <input type="text" class="form-control" id="bName" placeholder="Nombre del negocio">
+                        <input type="text" class="form-control" id="name" placeholder="Nombre del negocio">
                       </div>
                     </div>
   
@@ -274,7 +275,7 @@
                         <div class="input-group-prepend">
                           <div class="input-group-text"><i class="fa fa-map-pin"></i></div>
                         </div>
-                        <input type="text" class="form-control" id="location" placeholder="Link de google maps">
+                        <input type="text" class="form-control" id="GM" placeholder="Link de google maps">
                       </div>
                     </div>
   
@@ -286,7 +287,7 @@
                         <div class="input-group-prepend">
                           <div class="input-group-text"><i class="fa fa-check"></i></div>
                         </div>
-                        <input type="text" class="form-control" id="concept" placeholder="Describe tu negocio">
+                        <input type="text" class="form-control" id="desc" placeholder="Describe tu negocio">
                       </div>
                     </div>
   
@@ -298,19 +299,19 @@
                         <div class="col">
                           <div class="input-group-prepend">
                             <div class="input-group-text"><i class="fa fa-image"></i></div>
-                            <input type="text" class="form-control" id="concept" placeholder="Foto">
+                            <input type="text" class="form-control" id="pic1" placeholder="Foto">
                           </div>
                         </div>
                         <div class="col">
                           <div class="input-group-prepend">
                             <div class="input-group-text"><i class="fa fa-image"></i></div>
-                            <input type="text" class="form-control" id="concept" placeholder="Foto">
+                            <input type="text" class="form-control" id="pic2" placeholder="Foto">
                           </div>
                         </div>
                         <div class="col">
                           <div class="input-group-prepend">
                             <div class="input-group-text"><i class="fa fa-image"></i></div>
-                            <input type="text" class="form-control" id="concept" placeholder="Foto">
+                            <input type="text" class="form-control" id="pic3" placeholder="Foto">
                           </div>
                         </div>
                       </div>
@@ -318,7 +319,7 @@
 
                     <div class="row">
                       <label for="inputBudget">Budget: </label>
-                      <select id="inputState" class="form-control">
+                      <select id="budget" class="form-control">
                         <option selected>Low</option>
                         <option>Medium</option>
                         <option>High</option>
@@ -334,13 +335,13 @@
                       <div class="col">
                         <div class="input-group-prepend">
                           <div class="input-group-text"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
-                          <input type="number" class="form-control" id="concept" placeholder="Apertura" min="0" max="23" step="1">
+                          <input type="number" class="form-control" id="openH" placeholder="Apertura" min="0" max="23" step="1">
                         </div>
                       </div>
                       <div class="col">
                         <div class="input-group-prepend">
                           <div class="input-group-text"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
-                          <input type="number" class="form-control" id="concept" placeholder="Cierre" min="0" max="23" step="1">
+                          <input type="number" class="form-control" id="closeH" placeholder="Cierre" min="0" max="23" step="1">
                         </div>
                       </div>
                     </div>
@@ -350,7 +351,7 @@
               </div>
 
               <div class="modal-footer">
-                <button type="button" class="btn btn-success">Agregar</button>
+                <button type="button" class="btn btn-success" onclick="addBusiness()">Agregar</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
               </div>
             </div>

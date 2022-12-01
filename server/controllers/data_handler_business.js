@@ -1,6 +1,7 @@
 "use strict";
 
 const Business = require('../models/modelBusiness');
+const Reviews = require('../models/reviewsModel');
 //////////////////////////////////////////
 //Conection to MongoDB to return the full businesses array
 function getBusiness(req, res){
@@ -86,12 +87,36 @@ function deleteBusinessByName(req, res) {
 
 function deleteBusinessByID(req, res) {
     let id = req.params._id;
-
+    
     Business.findOneAndDelete({_id:`${id}`}).then(business => {
         res.type('text/plain; charset=utf-8');
         res.send(`Business ${business.id} was deleted!`);
     });
 }
+
+function getReviewsRelatedToABusinessByID(req, res){
+    let id = req.params._id;
+    let businesses = [];
+
+    Business.find({_id:`${id}`})
+        .then(data => {
+            data.map((d, k) =>{
+                businesses.push(d._id);
+            });
+
+            Reviews.find({targetBusinessID: {$in: businesses}})
+                .then(data => {
+                    res.send(data);
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        })
+        .catch(error => {
+            console.log(error);
+        });
+}
+
 
 //////////////////////////
 exports.getBusiness = getBusiness;
@@ -102,4 +127,5 @@ exports.updateBusinessByID = updateBusinessByID;
 exports.updateBusinessByName = updateBusinessByName;
 exports.deleteBusinessByName = deleteBusinessByName;
 exports.deleteBusinessByID = deleteBusinessByID;
+exports.getReviewsRelatedToABusinessByID = getReviewsRelatedToABusinessByID;
 
