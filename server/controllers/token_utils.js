@@ -9,7 +9,7 @@ const verifyToken = (req, res, next) => {
     let token = req.get("x-auth");
     let query = req.params;
     User.findOne(query).then(user => {
-        token = user.token;
+        token = user.token; 
         console.log(token);
     }).then(us => {
         if (token == undefined) {

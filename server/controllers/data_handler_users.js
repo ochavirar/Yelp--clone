@@ -1,5 +1,6 @@
 "use strict"
 const User = require('../models/modelUsers');
+const Review = require('../models/reviewsModel');
 
 function getUsers(req, res){
     User.find({}).then(users => res.status(200).json(users));
@@ -116,6 +117,15 @@ function deleteUserByEmail(req, res) {
     });
 }
 
+function postNewReview(req, res){
+    let review = Review(req.body);
+
+    review.save().then((rev) => {
+        res.set('Content-Type', 'text/plain; charset=utf-8');
+        res.send(`Review to ${rev.targetBusinessID} was created!`);
+    });
+}
+
 exports.getUsers = getUsers;
 exports.createUser = createUser;
 exports.getUserByName = getUserByName;
@@ -127,3 +137,4 @@ exports.deleteUserByName = deleteUserByName;
 exports.deleteUserByID = deleteUserByID;
 exports.updateUserByEmail = updateUserByEmail;
 exports.deleteUserByEmail = deleteUserByEmail;
+exports.postNewReview = postNewReview;

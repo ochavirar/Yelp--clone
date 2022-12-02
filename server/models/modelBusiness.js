@@ -50,11 +50,11 @@ let businessSchema = mongoose.Schema({
         type: Number,
         required: true
     },
-    ThreeStars:{
+    threeStars:{
         type: Number,
         required: true
     },
-    TwoStars:{
+    twoStars:{
         type: Number,
         required: true
     },

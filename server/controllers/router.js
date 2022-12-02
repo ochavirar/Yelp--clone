@@ -22,10 +22,16 @@ router.route('/Business/id/:_id')
 
 router.route('/BusinessReviews/id/:_id')
     .get((req, res) => dataHandlerBusiness.getReviewsRelatedToABusinessByID(req, res));
+
+router.route('/BusinessOwned/id/:_id')
+    .get((req, res) => dataHandlerBusiness.getBusinessesByOwnerID(req, res));
 ////////////////////////////////////
 router.route('/Users')
     .get((req, res) => dataHandlerUsers.getUsers(req, res))
     .post((req, res) => dataHandlerUsers.createUser(req, res));
+
+router.route('/Users/postReview')
+    .post((req, res) => dataHandlerUsers.postNewReview(req, res));
 
 router.use('/Users/email/:email', tokenUtils.verifyToken);
 

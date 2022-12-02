@@ -117,6 +117,17 @@ function getReviewsRelatedToABusinessByID(req, res){
         });
 }
 
+function getBusinessesByOwnerID(req, res){
+    let id = req.params._id;
+    Business.find({ownerID: `${id}`})
+        .then(data => {
+            res.send(data);
+        })
+        .catch(error => {
+            console.log(error);
+        });
+}
+
 
 //////////////////////////
 exports.getBusiness = getBusiness;
@@ -128,4 +139,5 @@ exports.updateBusinessByName = updateBusinessByName;
 exports.deleteBusinessByName = deleteBusinessByName;
 exports.deleteBusinessByID = deleteBusinessByID;
 exports.getReviewsRelatedToABusinessByID = getReviewsRelatedToABusinessByID;
+exports.getBusinessesByOwnerID = getBusinessesByOwnerID;
 
