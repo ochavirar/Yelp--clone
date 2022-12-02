@@ -14,16 +14,18 @@ const commentAndAnswer = {
 };
 
 class Business{
-    constructor(name, googleMapsLink, description, picture1, picture2, picture3, budget){
+    constructor(name, googleMapsLink, description, picture1, picture2, picture3, budget, openHour, closingHour){
         this._businessID = generateUUID();
-        this.name = name;
-        this.googleMapsLink = googleMapsLink;
-        this.description = description;
-        this.picture1 = picture1;
-        this.picture2 = picture2;
-        this.picture3 = picture3;
-        this.budget = budget;
-        this.commentAndAnswer = [];
+        this._name = name;
+        this._googleMapsLink = googleMapsLink;
+        this._description = description;
+        this._picture1 = picture1;
+        this._picture2 = picture2;
+        this._picture3 = picture3;
+        this._budget = budget;
+        this._openHour = openHour;
+        this._closingHour = closingHour;
+        this._commentAndAnswer = [];
     }
 
     get businessID(){
@@ -105,12 +107,24 @@ class Business{
             newBusiness.picture2,
             newBusiness.picture3,
             newBusiness.budget, 
+            newBusiness.openHour,
+            newBusiness.closingHour
         );
         return defBusiness;
     }
 
     static cleanObject(obj){
-        let properties = ["businessId", "name", "googleMapsLink", "description", "picture1", "picture2", "picture3", "budget", "commentAndAnswer"];
+        let properties = ["businessId", 
+            "name", 
+            "googleMapsLink", 
+            "description", 
+            "picture1", 
+            "picture2", 
+            "picture3", 
+            "budget", 
+            "openHour",
+            "closingHour",
+            "commentAndAnswer"];
         for(let prop in obj){
             if(!properties.includes(prop)){
                 prop = null;
